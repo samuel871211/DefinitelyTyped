@@ -219,7 +219,9 @@ import * as url from "node:url";
     const incoming: http.IncomingMessage = new http.IncomingMessage(new net.Socket());
 
     incoming.setEncoding("utf8");
-    incoming.setTimeout(1000).setTimeout(100, () => {});
+    incoming.setTimeout(1000).setTimeout(100, (socket) => {
+        socket; // $ExpectType Socket
+    });
 
     // stream
     incoming.pause();

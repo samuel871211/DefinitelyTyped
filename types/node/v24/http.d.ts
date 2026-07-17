@@ -655,7 +655,7 @@ declare module "http" {
          * @since v0.9.12
          * @param callback Optional function to be called when a timeout occurs. Same as binding to the `timeout` event.
          */
-        setTimeout(msecs: number, callback?: () => void): this;
+        setTimeout(msecs: number, callback?: (socket: Socket) => void): this;
         /**
          * Sets a single header value. If the header already exists in the to-be-sent
          * headers, its value will be replaced. Use an array of strings to send multiple
@@ -1102,7 +1102,7 @@ declare module "http" {
          * @param timeout Milliseconds before a request times out.
          * @param callback Optional function to be called when a timeout occurs. Same as binding to the `'timeout'` event.
          */
-        setTimeout(timeout: number, callback?: () => void): this;
+        setTimeout(timeout: number, callback?: (socket: Socket) => void): this;
         /**
          * Once a socket is assigned to this request and is connected `socket.setNoDelay()` will be called.
          * @since v0.5.9
@@ -1410,7 +1410,7 @@ declare module "http" {
          * Calls `message.socket.setTimeout(msecs, callback)`.
          * @since v0.5.9
          */
-        setTimeout(msecs: number, callback?: () => void): this;
+        setTimeout(msecs: number, callback?: (socket: Socket) => void): this;
         /**
          * **Only valid for request obtained from {@link Server}.**
          *
